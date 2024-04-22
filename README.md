@@ -17,4 +17,3 @@ This repo is for Sprint 2 of React - JavaScript 1
 ### Level 3 Exercises
 
 1. Arrow funciton setTimeout: create a function that prints a message to the console after waiting 3 seconds
-# react-sprint-2
