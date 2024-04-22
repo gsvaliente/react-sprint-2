@@ -22,13 +22,16 @@ person.greet();
 // Exercise 1.4
 const numbers = [1, 2, 3, 4, 5];
 for (let i = 0; i < numbers.length; i++) {
-  const printNumber = () => {
-    console.log(numbers[i]);
+  const printNumber = (list) => {
+    console.log(list[i]);
   };
-  printNumber();
+  printNumber(numbers);
 }
 
 // Exercise 1.5
-setTimeout(() => {
-  console.log("Hello, waited 3 seconds!");
-}, 3000);
+const printInSeconds = () => {
+  setTimeout(() => {
+    console.log("Hello, waited 3 seconds!");
+  }, 3000);
+};
+printInSeconds();
