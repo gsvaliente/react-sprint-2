@@ -35,3 +35,32 @@ const printInSeconds = () => {
   }, 3000);
 };
 printInSeconds();
+
+// TERNARY OPERATOR
+// Exercise 2.1
+function canDrive(age) {
+  return age >= 18 ? "You can drive!" : "You can't drive!";
+}
+
+// Exercise 2.2
+function compareNums(num1, num2) {
+  return num1 > num2 ? `${num1} is greater` : `${num2} is greater`;
+}
+
+// Exercise 2.3
+function explainNum(num) {
+  return num === 0 ? "zero" : num < 0 ? "negative" : "positive";
+}
+
+// Exercise 2.4
+function findMax(a, b, c) {
+  return a > b && a > c ? a : b > a && b > c ? b : c;
+}
+
+// Exercise 2.5
+function oddOrEven(list) {
+  for (let i = 0; i < list.length; i++) {
+    const info = list[i] % 2 === 0 ? `${list[i]} is even` : `${list[i]} is odd`;
+    console.log(info);
+  }
+}

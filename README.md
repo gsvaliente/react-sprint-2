@@ -27,7 +27,7 @@ This repo is for Sprint 2 of React - JavaScript 1
 
 ### Level 2 Exercises
 
-1. Link ternary operator: write an expression that ues links of ternary operators to detemrine whether a number is positive, negative, or zero
+1. Link ternary operator: write an expression that uses links of ternary operators to detemrine whether a number is positive, negative, or zero
 2. Create a findMaximum function that accepts three parameters (a,b,c) use the ternary operator to determine the max value
 
 ### Level 3 Excercises
