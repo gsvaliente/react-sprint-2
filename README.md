@@ -1,6 +1,8 @@
 # ABOUT
 
 This repo is for Sprint 2 of React - JavaScript 1
+The first index.js and index.html are aiming to solve the first part of the sprint.
+The eCommerce directory, has its own README and will be used to resolve the second part of the sprint.
 
 ## ARROW FUNCTIONS
 
