@@ -1,0 +1,8 @@
+.notValid {
+  color: red;
+  /* border: 1px solid red; */
+}
+
+.redBorder {
+  border: 1px solid red;
+}
