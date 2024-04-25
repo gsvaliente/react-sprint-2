@@ -16,7 +16,7 @@ class Person {
   }
 }
 
-const person = new Person("Gabriel");
+const person = new Person('Gabriel');
 person.greet();
 
 // Exercise 1.4
@@ -31,7 +31,7 @@ for (let i = 0; i < numbers.length; i++) {
 // Exercise 1.5
 const printInSeconds = () => {
   setTimeout(() => {
-    console.log("Hello, waited 3 seconds!");
+    console.log('Hello, waited 3 seconds!');
   }, 3000);
 };
 printInSeconds();
@@ -39,7 +39,7 @@ printInSeconds();
 // TERNARY OPERATOR
 // Exercise 2.1
 function canDrive(age) {
-  return age >= 18 ? "You can drive!" : "You can't drive!";
+  return age >= 18 ? 'You can drive!' : "You can't drive!";
 }
 
 // Exercise 2.2
@@ -49,7 +49,7 @@ function compareNums(num1, num2) {
 
 // Exercise 2.3
 function explainNum(num) {
-  return num === 0 ? "zero" : num < 0 ? "negative" : "positive";
+  return num === 0 ? 'zero' : num < 0 ? 'negative' : 'positive';
 }
 
 // Exercise 2.4
@@ -95,10 +95,10 @@ const printName = (name) => {
   console.log(`Hello, my name is ${name}`);
 };
 
-waitForHello("Gabriel", printName);
+waitForHello('Gabriel', printName);
 
 // Exercise 3.4
-const animals = ["cat", "dog", "fish", "bird", "rabbit"];
+const animals = ['cat', 'dog', 'fish', 'bird', 'rabbit'];
 const processElements = (arr, cb) => {
   for (let i = 0; i < arr.length; i++) {
     cb(arr[i]);
@@ -112,7 +112,7 @@ const printElement = (el) => {
 processElements(animals, printElement);
 
 // Exercise 3.5
-const randomWord = "helloworld";
+const randomWord = 'helloworld';
 
 const processString = (str, cb) => {
   const newWord = str.toUpperCase();
@@ -136,9 +136,9 @@ console.log(sum(1, 2, 3, 4, 5, 6, 7));
 
 // Exercise 4.3
 const user = {
-  name: "Gabriel",
+  name: 'Gabriel',
   age: 25,
-  country: "El Salvador",
+  country: 'El Salvador',
 };
 
 const user2 = { ...user };
@@ -150,7 +150,7 @@ const randomArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const [first, second, ...rest] = randomArray;
 
 // Exercise 4.5
-const colors = ["red", "blue", "green"];
+const colors = ['red', 'blue', 'green'];
 
 const printColors = (color1, color2, color3) => {
   console.log(color1, color2, color3);
@@ -159,13 +159,13 @@ printColors(...colors);
 
 // Exercise 4.6
 const car = {
-  brand: "Toyota",
-  model: "Corolla",
+  brand: 'Toyota',
+  model: 'Corolla',
   year: 2015,
 };
 const looks = {
-  color: "black",
-  rims: "silver",
+  color: 'black',
+  rims: 'silver',
 };
 
 const newCar = { ...car, ...looks };
@@ -207,7 +207,7 @@ const someArray = everySomeArray.some((num) => num > 10);
 
 // ARRAY LOOPS
 // Exercise 6.1
-const names = ["Anna", "Bernat", "Clara"];
+const names = ['Anna', 'Bernat', 'Clara'];
 
 names.forEach((name) => console.log(name));
 
@@ -224,9 +224,9 @@ console.log(filteredArray2);
 
 // Exercise 6.4
 const forInObject = {
-  name: "Gabriel",
+  name: 'Gabriel',
   age: 31,
-  country: "El Salvador",
+  country: 'El Salvador',
 };
 
 for (const key in forInObject) {
@@ -248,7 +248,7 @@ for (const [idx, name] of names.entries()) {
 // Exercise 7.1
 const firstPromise = new Promise((resolve) => {
   setTimeout(() => {
-    resolve("Hello, world");
+    resolve('Hello, world');
   }, 2000);
 });
 
@@ -259,14 +259,14 @@ firstPromise.then((res) => console.log(res));
 const getValidation = (input) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (input === "Hello") {
-        resolve("Success");
+      if (input === 'Hello') {
+        resolve('Success');
       }
-      reject("Error");
+      reject('Error');
     }, 2000);
   });
 };
-getValidation("Hello")
+getValidation('Hello')
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
 
@@ -290,13 +290,13 @@ const asyncFunction2 = async () => {
 // Exercise 7.6
 const promiseWait1 = new Promise((resolve) => {
   setTimeout(() => {
-    resolve("first promise");
+    resolve('first promise');
   }, 2000);
 });
 
 const promiseWait2 = new Promise((resolve) => {
   setTimeout(() => {
-    resolve("second promise");
+    resolve('second promise');
   }, 3000);
 });
 

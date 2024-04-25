@@ -2,9 +2,9 @@
 var products = [
   {
     id: 1,
-    name: "cooking oil",
+    name: 'cooking oil',
     price: 10.5,
-    type: "grocery",
+    type: 'grocery',
     offer: {
       number: 3,
       percent: 20,
@@ -12,15 +12,15 @@ var products = [
   },
   {
     id: 2,
-    name: "Pasta",
+    name: 'Pasta',
     price: 6.25,
-    type: "grocery",
+    type: 'grocery',
   },
   {
     id: 3,
-    name: "Instant cupcake mixture",
+    name: 'Instant cupcake mixture',
     price: 5,
-    type: "grocery",
+    type: 'grocery',
     offer: {
       number: 10,
       percent: 30,
@@ -28,39 +28,39 @@ var products = [
   },
   {
     id: 4,
-    name: "All-in-one",
+    name: 'All-in-one',
     price: 260,
-    type: "beauty",
+    type: 'beauty',
   },
   {
     id: 5,
-    name: "Zero Make-up Kit",
+    name: 'Zero Make-up Kit',
     price: 20.5,
-    type: "beauty",
+    type: 'beauty',
   },
   {
     id: 6,
-    name: "Lip Tints",
+    name: 'Lip Tints',
     price: 12.75,
-    type: "beauty",
+    type: 'beauty',
   },
   {
     id: 7,
-    name: "Lawn Dress",
+    name: 'Lawn Dress',
     price: 15,
-    type: "clothes",
+    type: 'clothes',
   },
   {
     id: 8,
-    name: "Lawn-Chiffon Combo",
+    name: 'Lawn-Chiffon Combo',
     price: 19.99,
-    type: "clothes",
+    type: 'clothes',
   },
   {
     id: 9,
-    name: "Toddler Frock",
+    name: 'Toddler Frock',
     price: 9.99,
-    type: "clothes",
+    type: 'clothes',
   },
 ];
 
@@ -111,9 +111,9 @@ function calculateTotal() {
 // Exercise 4
 function applyPromotionsCart() {
   cart.map((item) => {
-    if (item.name === "cooking oil" && item.quantity >= 3) {
+    if (item.name === 'cooking oil' && item.quantity >= 3) {
       item.subTotal = item.price * item.quantity * 0.8;
-    } else if ((item.name = "Instant cupcake mixture" && item.quantity >= 10)) {
+    } else if ((item.name = 'Instant cupcake mixture' && item.quantity >= 10)) {
       item.subTotal = item.price * item.quantity * 0.7;
     } else {
       item.subTotal = item.price * item.quantity;
@@ -124,15 +124,18 @@ function applyPromotionsCart() {
 }
 
 // Exercise 5
-const cartList = document.getElementById("cart_list");
-const totalPrice = document.getElementById("total_price");
-const cartAmount = document.getElementById("count_product");
+const cartList = document.getElementById('cart_list');
+const totalPrice = document.getElementById('total_price');
+const cartAmount = document.getElementById('count_product');
 
 function printCart() {
-  cartList.innerHTML = "";
-  totalPrice.innerHTML = "";
-  cartAmount.innerHTML = "";
+  cartList.innerHTML = '';
+  totalPrice.innerHTML = '';
+  cartAmount.innerHTML = '';
+
+  let amountToPrint = 0;
   cart.forEach((item) => {
+    amountToPrint += item.quantity;
     cartList.innerHTML += `
     <tr>
         <th scope="row">${item.name}</th>
@@ -140,16 +143,19 @@ function printCart() {
         <td>${item.quantity}</td>
         <td>$${item.subTotal.toFixed(2)}</td>
     </tr>
-`;
+    `;
     totalPrice.innerHTML = total.toFixed(2);
-    cartAmount.innerHTML = cart.length;
+    cartAmount.innerHTML = amountToPrint;
   });
 }
 
-// ** Nivell II **
+// ** Level II **
 
 // Exercise 7
-function removeFromCart(id) {}
+function removeFromCart(id) {
+  const newList = cart.filter((item) => item.id !== id);
+  cart = newList;
+}
 
 function open_modal() {
   printCart();
