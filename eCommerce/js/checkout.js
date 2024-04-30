@@ -18,17 +18,15 @@ function validate() {
   var errorPhone = document.getElementById('errorPhone');
 
   var form = document.querySelector('.form');
-  var alpha = /^[A-Za-z]+$/;
-  var numbs = /^[0-9]+$/;
+  var alphabet = /^[A-Za-z]+$/;
+  var numbers = /^[0-9]+$/;
 
   function containsNumber(str) {
-    return str.match(alpha) === null;
+    return str.match(alphabet) === null;
   }
   function containsLetters(str) {
-    return str.match(numbs) === null;
+    return str.match(numbers) === null;
   }
-
-  let error = 0;
 
   function addErrorClasses(element1, element2) {
     element1.classList.add('is-invalid');
@@ -48,6 +46,8 @@ function validate() {
       restoreErrorClasses(field, errorField);
     }
   }
+
+  let error = 0;
 
   form.addEventListener('submit', (e) => {
     error = 0;
