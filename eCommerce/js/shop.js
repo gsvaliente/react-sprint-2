@@ -103,17 +103,16 @@ function calculateTotal() {
   cart.forEach((item) => {
     totalPrice += item.subTotal;
     total = totalPrice;
+    return total;
   });
-
-  return total;
 }
 
 // Exercise 4
 function applyPromotionsCart() {
   cart.map((item) => {
-    if (item.name === 'cooking oil' && item.quantity >= 3) {
+    if (item.id === 1 && item.quantity >= 3) {
       item.subTotal = item.price * item.quantity * 0.8;
-    } else if ((item.name = 'Instant cupcake mixture' && item.quantity >= 10)) {
+    } else if (item.id === 3 && item.quantity >= 10) {
       item.subTotal = item.price * item.quantity * 0.7;
     } else {
       item.subTotal = item.price * item.quantity;
