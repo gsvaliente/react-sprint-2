@@ -28,54 +28,110 @@ function validate() {
     return str.match(numbs) === null;
   }
 
-  // Validate fields entered by the user: name, phone, password, and email
-  form.addEventListener('submit', (e) => {
-    if (
-      fName.value == '' ||
-      fName.value.length < 3 ||
-      containsNumber(fName.value)
-    ) {
-      e.preventDefault();
+  let error = 0;
 
-      fName.classList.add('is-invalid');
-      errorName.classList.remove('invalid-feedback');
+  function addErrorClasses(element1, element2) {
+    element1.classList.add('is-invalid');
+    element2.classList.remove('invalid-feedback');
+  }
+
+  function restoreErrorClasses(element1, element2) {
+    element1.classList.remove('is-invalid');
+    element2.classList.add('invalid-feedback');
+  }
+
+  function validateField(field, errorField, validateConditions) {
+    if (validateConditions(field.value)) {
+      error++;
+      addErrorClasses(field, errorField);
+    } else {
+      restoreErrorClasses(field, errorField);
     }
-    if (
-      fLastN.value == '' ||
-      fLastN.value < 3 ||
-      containsNumber(fLastN.value)
-    ) {
-      e.preventDefault();
-      fLastN.classList.add('is-invalid');
-      errorLastN.classList.remove('invalid-feedback');
-    }
-    if (fAddress.value == '' || fAddress.value < 3) {
-      e.preventDefault();
-      errorAddress.classList.remove('invalid-feedback');
-      fAddress.classList.add('is-invalid');
-    }
-    if (
-      containsNumber(fPassword.value) === false ||
-      containsLetters(fPassword.value) === false ||
-      fPassword.value == ''
-    ) {
-      e.preventDefault();
-      fPassword.classList.add('is-invalid');
-      errorPassword.classList.remove('invalid-feedback');
-    }
-    if (
-      !fEmail.value.includes('@') ||
-      fEmail.value == '' ||
-      fEmail.value.length < 3
-    ) {
-      e.preventDefault();
-      fEmail.classList.add('is-invalid');
-      errorEmail.classList.remove('invalid-feedback');
-    }
-    if (fPhone == '' || containsLetters(fPhone.value) === true) {
-      e.preventDefault();
-      fPhone.classList.add('is-invalid');
-      errorPhone.classList.remove('invalid-feedback');
-    }
+  }
+
+  form.addEventListener('submit', (e) => {
+    error = 0;
+    validateField(
+      fName,
+      errorName,
+      (value) => value == '' || value.length < 3 || containsNumber(value)
+    );
+    validateField(
+      fLastN,
+      errorLastN,
+      (value) => value == '' || value.length < 3 || containsNumber(value)
+    );
+    validateField(
+      fAddress,
+      errorAddress,
+      (value) => value == '' || value.length < 3
+    );
+    validateField(
+      fPassword,
+      errorPassword,
+      (value) =>
+        !containsNumber(value) || !containsLetters(value) || value.length < 4
+    );
+    validateField(
+      fEmail,
+      errorEmail,
+      (value) => !value.includes('@') || value == '' || value.length < 3
+    );
+    validateField(
+      fPhone,
+      errorPhone,
+      (value) => value.length < 9 || containsLetters(value)
+    );
+    if (error) e.preventDefault();
   });
+
+  // Validate fields entered by the user: name, phone, password, and email
+  // form.addEventListener('submit', (e) => {
+  //   error = 0;
+  //   if (
+  //     fName.value == '' ||
+  //     fName.value.length < 3 ||
+  //     containsNumber(fName.value)
+  //   ) {
+  //     error++;
+  //     addErrorClasses(fName, errorName);
+  //   } else restoreErrorClasses(fName, errorName);
+  //   if (
+  //     fLastN.value == '' ||
+  //     fLastN.value < 3 ||
+  //     containsNumber(fLastN.value)
+  //   ) {
+  //     error++;
+  //     addErrorClasses(fLastN, errorLastN);
+  //   } else restoreErrorClasses(fLastN, errorLastN);
+  //   if (fAddress.value == '' || fAddress.value < 3) {
+  //     error++;
+
+  //     addErrorClasses(fAddress, errorAddress);
+  //   } else restoreErrorClasses(fAddress, errorAddress);
+  //   if (
+  //     containsNumber(fPassword.value) === false ||
+  //     containsLetters(fPassword.value) === false ||
+  //     fPassword.value == ''
+  //   ) {
+  //     error++;
+  //     addErrorClasses(fPassword, errorPassword);
+  //   } else restoreErrorClasses(fPassword, errorPassword);
+  //   if (
+  //     !fEmail.value.includes('@') ||
+  //     fEmail.value == '' ||
+  //     fEmail.value.length < 3
+  //   ) {
+  //     error++;
+  //     addErrorClasses(fEmail, errorEmail);
+  //   } else restoreErrorClasses(fEmail, errorEmail);
+  //   if (fPhone.value.length < 9 || containsLetters(fPhone.value) === true) {
+  //     error++;
+
+  //     fPhone.classList.add('is-invalid');
+  //     errorPhone.classList.remove('invalid-feedback');
+  //     addErrorClasses(fPhone, errorPhone);
+  //   } else restoreErrorClasses(fPhone, errorPhone);
+  //   if (error > 0) e.preventDefault();
+  // });
 }
